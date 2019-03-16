@@ -1,9 +1,12 @@
 package com.applikeysolutions.cosmocalendar.settings.lists;
 
+import com.applikeysolutions.cosmocalendar.model.Month;
 import com.applikeysolutions.cosmocalendar.settings.lists.connected_days.ConnectedDays;
 import com.applikeysolutions.cosmocalendar.settings.lists.connected_days.ConnectedDaysManager;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -11,6 +14,8 @@ public class CalendarListsModel implements CalendarListsInterface {
 
   //Disabled days cannot be selected
   private Set<Long> disabledDays = new TreeSet<>();
+
+  private Map<Month,Set<Integer>> monthDisabledDays = new HashMap<>();
 
   private DisabledDaysCriteria disabledDaysCriteria;
 
@@ -29,6 +34,21 @@ public class CalendarListsModel implements CalendarListsInterface {
   @Override
   public void setDisabledDays(Set<Long> disabledDays) {
     this.disabledDays = disabledDays;
+  }
+
+  @Override
+  public Set<Integer> getMonthDisabledDays(Month month) {
+    return monthDisabledDays.get(month);
+  }
+
+  @Override
+  public void setMonthDisabledDays(
+      Month month, Set<Integer> disabledDays) {
+    if (monthDisabledDays.containsKey(month)) {
+      monthDisabledDays.get(month).addAll(disabledDays);
+    } else {
+      monthDisabledDays.put(month, disabledDays);
+    }
   }
 
   @Override

@@ -22,8 +22,6 @@ import com.applikeysolutions.cosmocalendar.selection.criteria.WeekDayCriteria;
 import com.applikeysolutions.cosmocalendar.selection.criteria.month.CurrentMonthCriteria;
 import com.applikeysolutions.cosmocalendar.selection.criteria.month.NextMonthCriteria;
 import com.applikeysolutions.cosmocalendar.selection.criteria.month.PreviousMonthCriteria;
-import com.applikeysolutions.cosmocalendar.settings.lists.DisabledDaysCriteria;
-import com.applikeysolutions.cosmocalendar.settings.lists.DisabledDaysCriteriaType;
 import com.applikeysolutions.cosmocalendar.utils.SelectionType;
 import com.applikeysolutions.cosmocalendar.view.CalendarView;
 import java.util.ArrayList;
@@ -64,12 +62,24 @@ public class DefaultCalendarActivity extends AppCompatActivity
 
     calendarView.setOnMonthChangeListener(new OnMonthChangeListener() {
       @Override public void onMonthChanged(Month month) {
-        Set<Integer> disabled = new HashSet<>();
-        disabled.add(1);
-        disabled.add(2);
-        disabled.add(3);
-        calendarView.setDisabledDaysCriteria(new DisabledDaysCriteria(disabled,
-            DisabledDaysCriteriaType.DAYS_OF_MONTH));
+
+        Day currentDay = null;
+        for (Day day : month.getDays()) {
+          if (day.isCurrent()) {
+            currentDay = day;
+            break;
+          }
+        }
+        Set<Integer> set = new HashSet<>();
+
+        if (currentDay != null) {
+          for (Day day : month.getDays()) {
+            if (day.getDayNumber() < currentDay.getDayNumber()) {
+              set.add(day.getDayNumber());
+            }
+          }
+        }
+        calendarView.setMonthDisabledDays(month, set);
       }
     });
 

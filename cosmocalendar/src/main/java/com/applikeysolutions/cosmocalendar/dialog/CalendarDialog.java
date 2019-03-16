@@ -14,6 +14,7 @@ import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.applikeysolutions.cosmocalendar.model.Day;
+import com.applikeysolutions.cosmocalendar.model.Month;
 import com.applikeysolutions.cosmocalendar.settings.appearance.AppearanceInterface;
 import com.applikeysolutions.cosmocalendar.settings.date.DateInterface;
 import com.applikeysolutions.cosmocalendar.settings.lists.CalendarListsInterface;
@@ -379,6 +380,14 @@ public class CalendarDialog extends Dialog implements View.OnClickListener,
   @Override
   public void setDisabledDays(Set<Long> disabledDays) {
     calendarView.setDisabledDays(disabledDays);
+  }
+
+  @Override public Set<Integer> getMonthDisabledDays(Month month) {
+    return calendarView.getMonthDisabledDays(month);
+  }
+
+  @Override public void setMonthDisabledDays(Month month, Set<Integer> disabledDays) {
+    calendarView.setMonthDisabledDays(month, disabledDays);
   }
 
   @Override

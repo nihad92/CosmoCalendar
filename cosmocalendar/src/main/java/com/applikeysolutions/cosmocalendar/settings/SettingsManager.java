@@ -1,6 +1,7 @@
 package com.applikeysolutions.cosmocalendar.settings;
 
 import android.support.v7.widget.LinearLayoutManager;
+import com.applikeysolutions.cosmocalendar.model.Month;
 import com.applikeysolutions.cosmocalendar.settings.appearance.AppearanceInterface;
 import com.applikeysolutions.cosmocalendar.settings.appearance.AppearanceModel;
 import com.applikeysolutions.cosmocalendar.settings.appearance.ConnectedDayIconPosition;
@@ -289,6 +290,14 @@ public class SettingsManager
   @Override
   public void setDisabledDays(Set<Long> disabledDays) {
     calendarListsModel.setDisabledDays(disabledDays);
+  }
+
+  @Override public Set<Integer> getMonthDisabledDays(Month month) {
+    return calendarListsModel.getMonthDisabledDays(month);
+  }
+
+  @Override public void setMonthDisabledDays(Month month, Set<Integer> disabledDays) {
+   calendarListsModel.setMonthDisabledDays(month, disabledDays);
   }
 
   @Override

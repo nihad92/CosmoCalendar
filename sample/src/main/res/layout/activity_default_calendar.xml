@@ -19,6 +19,8 @@
       android:layout_height="wrap_content"
       android:layout_above="@+id/ll_settings"
       android:layout_below="@id/toolbar"
+      android:layout_marginStart="24dp"
+      android:layout_marginEnd="24dp"
       app:dayTextSize="10dp"
       app:monthTextSize="12dp"
       app:otherDayTextColor="@android:color/white"

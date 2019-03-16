@@ -627,6 +627,15 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
     monthAdapter.setDisabledDaysCriteria(criteria);
   }
 
+  @Override public void setMonthDisabledDays(Month month, Set<Integer> disabledDays) {
+    settingsManager.setMonthDisabledDays(month, disabledDays);
+    monthAdapter.setMonthDisabledDays(month, disabledDays);
+  }
+
+  @Override public Set<Integer> getMonthDisabledDays(Month month) {
+    return settingsManager.getMonthDisabledDays(month);
+  }
+
   @Override
   public void addConnectedDays(ConnectedDays connectedDays) {
     settingsManager.getConnectedDaysManager().addConnectedDays(connectedDays);

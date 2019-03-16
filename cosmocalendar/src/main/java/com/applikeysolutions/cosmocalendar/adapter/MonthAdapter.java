@@ -102,10 +102,15 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthHolder> {
   public void setDisabledDaysCriteria(DisabledDaysCriteria criteria) {
     for (Month month : months) {
       for (Day day : month.getDays()) {
-        if (!day.isDisabled()) {
-          day.setDisabled(CalendarUtils.isDayDisabledByCriteria(day, criteria));
-        }
+        day.setDisabled(CalendarUtils.isDayDisabledByCriteria(day, criteria));
       }
+    }
+    notifyDataSetChanged();
+  }
+
+  public void setMonthDisabledDays(Month month, Set<Integer> disabledDays) {
+    for (Day day : month.getDays()) {
+      day.setDisabled(disabledDays.contains(day.getDayNumber()));
     }
     notifyDataSetChanged();
   }
