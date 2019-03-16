@@ -11,7 +11,6 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.util.Pair;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
@@ -682,7 +681,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
    */
   public void goToPreviousMonth() {
     int currentVisibleItemPosition =
-        ((GridLayoutManager) rvMonths.getLayoutManager()).findFirstVisibleItemPosition();
+        ((LinearLayoutManager) rvMonths.getLayoutManager()).findFirstVisibleItemPosition();
     if (currentVisibleItemPosition != 0) {
       rvMonths.smoothScrollToPosition(currentVisibleItemPosition - 1);
     }
@@ -693,7 +692,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
    */
   public void goToNextMonth() {
     int currentVisibleItemPosition =
-        ((GridLayoutManager) rvMonths.getLayoutManager()).findFirstVisibleItemPosition();
+        ((LinearLayoutManager) rvMonths.getLayoutManager()).findFirstVisibleItemPosition();
     if (currentVisibleItemPosition != monthAdapter.getData().size() - 1) {
       rvMonths.smoothScrollToPosition(currentVisibleItemPosition + 1);
     }
@@ -988,7 +987,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
     recreateInitialMonth();
 
     rvMonths.setLayoutManager(
-        new GridLayoutManager(getContext(), 1, getCalendarOrientation(), false));
+        new LinearLayoutManager(getContext(), getCalendarOrientation(), false));
 
     changeSnapHelper();
 
