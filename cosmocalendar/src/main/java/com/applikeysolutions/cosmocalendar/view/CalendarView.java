@@ -93,6 +93,8 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
 
   //Listeners
   private OnMonthChangeListener onMonthChangeListener;
+  private com.applikeysolutions.cosmocalendar.listeners.OnDaySelectedListener onDaySelectedListener;
+
   private Month previousSelectedMonth;
 
   private int lastVisibleMonthPosition = 0;
@@ -288,8 +290,6 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
     settingsManager.setMonthTextSize(monthTextSize);
     settingsManager.setDayTextSize(dayTextSize);
     settingsManager.setSelectedDayTextSize(selectedDayTextSize);
-
-
   }
 
   private void handleWeekendDaysAttributes(TypedArray typedArray) {
@@ -712,6 +712,10 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
   public void onDaySelected() {
     selectedDays = getSelectedDays();
     displaySelectedDays();
+    if (onDaySelectedListener != null
+        && settingsManager.getSelectionType() == SelectionType.SINGLE) {
+      onDaySelectedListener.onDaySelected(selectedDays.get(0));
+    }
   }
 
   /**
@@ -1184,6 +1188,21 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
 
   public void setOnMonthChangeListener(OnMonthChangeListener onMonthChangeListener) {
     this.onMonthChangeListener = onMonthChangeListener;
+    if (onMonthChangeListener == null) return;
+    rvMonths.post(new Runnable() {
+      @Override public void run() {
+        int position = rvMonths.getLayoutManager()
+            .getPosition(snapHelper.findSnapView(rvMonths.getLayoutManager()));
+        Month month = monthAdapter.getData().get(position);
+        CalendarView.this.onMonthChangeListener.onMonthChanged(month);
+        previousSelectedMonth = month;
+      }
+    });
+  }
+
+  public void setOnDaySelectedListener(
+      com.applikeysolutions.cosmocalendar.listeners.OnDaySelectedListener onDaySelectedListener) {
+    this.onDaySelectedListener = onDaySelectedListener;
   }
 
   @Override

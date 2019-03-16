@@ -6,12 +6,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import com.applikeysolutions.cosmocalendar.listeners.OnDaySelectedListener;
 import com.applikeysolutions.cosmocalendar.listeners.OnMonthChangeListener;
+import com.applikeysolutions.cosmocalendar.model.Day;
 import com.applikeysolutions.cosmocalendar.model.Month;
 import com.applikeysolutions.cosmocalendar.selection.MultipleSelectionManager;
 import com.applikeysolutions.cosmocalendar.selection.criteria.BaseCriteria;
@@ -67,6 +70,13 @@ public class DefaultCalendarActivity extends AppCompatActivity
         disabled.add(3);
         calendarView.setDisabledDaysCriteria(new DisabledDaysCriteria(disabled,
             DisabledDaysCriteriaType.DAYS_OF_MONTH));
+      }
+    });
+
+    calendarView.setOnDaySelectedListener(new OnDaySelectedListener() {
+      @Override public void onDaySelected(Day day) {
+        Log.d("DAY", day.getCalendar().get(Calendar.DAY_OF_MONTH) + " " + day.getCalendar()
+            .get(Calendar.MONTH) + " " + day.getCalendar().get(Calendar.YEAR));
       }
     });
   }
