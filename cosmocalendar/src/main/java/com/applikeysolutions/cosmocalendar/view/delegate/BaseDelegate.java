@@ -4,5 +4,5 @@ import com.applikeysolutions.cosmocalendar.view.CalendarView;
 
 public class BaseDelegate {
 
-    protected CalendarView calendarView;
+  protected CalendarView calendarView;
 }

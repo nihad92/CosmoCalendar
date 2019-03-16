@@ -1,7 +1,6 @@
 package com.applikeysolutions.cosmocalendar.selection;
 
 import android.support.annotation.NonNull;
-
 import com.applikeysolutions.cosmocalendar.model.Day;
 
 /**
@@ -10,18 +9,18 @@ import com.applikeysolutions.cosmocalendar.model.Day;
 
 public class NoneSelectionManager extends BaseSelectionManager {
 
-    @Override
-    public void toggleDay(@NonNull Day day) {
+  @Override
+  public void toggleDay(@NonNull Day day) {
 
-    }
+  }
 
-    @Override
-    public boolean isDaySelected(@NonNull Day day) {
-        return false;
-    }
+  @Override
+  public boolean isDaySelected(@NonNull Day day) {
+    return false;
+  }
 
-    @Override
-    public void clearSelections() {
+  @Override
+  public void clearSelections() {
 
-    }
+  }
 }

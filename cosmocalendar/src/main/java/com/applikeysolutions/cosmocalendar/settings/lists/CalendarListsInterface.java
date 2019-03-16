@@ -2,24 +2,23 @@ package com.applikeysolutions.cosmocalendar.settings.lists;
 
 import com.applikeysolutions.cosmocalendar.settings.lists.connected_days.ConnectedDays;
 import com.applikeysolutions.cosmocalendar.settings.lists.connected_days.ConnectedDaysManager;
-
 import java.util.Set;
 
 public interface CalendarListsInterface {
 
-    Set<Long> getDisabledDays();
+  Set<Long> getDisabledDays();
 
-    ConnectedDaysManager getConnectedDaysManager();
+  void setDisabledDays(Set<Long> disabledDays);
 
-    Set<Long> getWeekendDays();
+  ConnectedDaysManager getConnectedDaysManager();
 
-    DisabledDaysCriteria getDisabledDaysCriteria();
+  Set<Long> getWeekendDays();
 
-    void setDisabledDays(Set<Long> disabledDays);
+  void setWeekendDays(Set<Long> weekendDays);
 
-    void setWeekendDays(Set<Long> weekendDays);
+  DisabledDaysCriteria getDisabledDaysCriteria();
 
-    void setDisabledDaysCriteria(DisabledDaysCriteria criteria);
+  void setDisabledDaysCriteria(DisabledDaysCriteria criteria);
 
-    void addConnectedDays(ConnectedDays connectedDays);
+  void addConnectedDays(ConnectedDays connectedDays);
 }

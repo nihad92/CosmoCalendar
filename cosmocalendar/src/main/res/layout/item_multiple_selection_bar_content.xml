@@ -8,4 +8,5 @@
     android:gravity="center"
     android:textColor="@color/default_day_text_color"
     android:textSize="@dimen/day_text_size"
-    tools:text="10" />
+    tools:text="10"
+    />

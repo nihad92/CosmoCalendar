@@ -2,7 +2,7 @@ package com.applikeysolutions.cosmocalendar.settings.date;
 
 public interface DateInterface {
 
-    int getFirstDayOfWeek();
+  int getFirstDayOfWeek();
 
-    void setFirstDayOfWeek(int firstDayOfWeek);
+  void setFirstDayOfWeek(int firstDayOfWeek);
 }

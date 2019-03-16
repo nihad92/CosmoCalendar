@@ -9,4 +9,5 @@
     android:textColor="@color/default_week_day_title_text_color"
     android:textSize="@dimen/day_text_size"
     android:textStyle="bold"
-    tools:text="Mon" />
+    tools:text="Mon"
+    />

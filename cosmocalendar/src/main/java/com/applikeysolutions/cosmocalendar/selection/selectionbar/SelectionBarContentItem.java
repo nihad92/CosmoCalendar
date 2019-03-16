@@ -4,18 +4,18 @@ import com.applikeysolutions.cosmocalendar.model.Day;
 
 public class SelectionBarContentItem implements SelectionBarItem {
 
-    private Day day;
+  private Day day;
 
-    public Day getDay() {
-        return day;
-    }
+  public SelectionBarContentItem(Day day) {
+    this.day = day;
+  }
 
-    public void setDay(Day day) {
-        this.day = day;
-    }
+  public Day getDay() {
+    return day;
+  }
 
-    public SelectionBarContentItem(Day day) {
-        this.day = day;
-    }
+  public void setDay(Day day) {
+    this.day = day;
+  }
 }
 

@@ -7,16 +7,16 @@ import com.applikeysolutions.cosmocalendar.model.Day;
 import com.applikeysolutions.cosmocalendar.view.CalendarView;
 import com.applikeysolutions.customizablecalendar.R;
 
-public class OtherDayHolder extends BaseDayHolder {
+public class DisabledDayHolder extends BaseDayHolder {
 
-  public OtherDayHolder(View itemView, CalendarView calendarView) {
+  public DisabledDayHolder(View itemView, CalendarView calendarView) {
     super(itemView, calendarView);
     tvDay = (TextView) itemView.findViewById(R.id.tv_day_number);
   }
 
   public void bind(Day day) {
     tvDay.setText(String.valueOf(day.getDayNumber()));
-    tvDay.setTextColor(calendarView.getOtherDayTextColor());
+    tvDay.setTextColor(calendarView.getDisabledDayTextColor());
     tvDay.setTextSize(TypedValue.COMPLEX_UNIT_PX, calendarView.getDayTextSize());
   }
 }

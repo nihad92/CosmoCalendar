@@ -2,17 +2,17 @@ package com.applikeysolutions.cosmocalendar.selection.selectionbar;
 
 public class SelectionBarTitleItem implements SelectionBarItem {
 
-    private String title;
+  private String title;
 
-    public String getTitle() {
-        return title;
-    }
+  public SelectionBarTitleItem(String title) {
+    this.title = title;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public SelectionBarTitleItem(String title) {
-        this.title = title;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 }

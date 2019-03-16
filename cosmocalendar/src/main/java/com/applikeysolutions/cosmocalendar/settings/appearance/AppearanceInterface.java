@@ -2,95 +2,111 @@ package com.applikeysolutions.cosmocalendar.settings.appearance;
 
 public interface AppearanceInterface {
 
-    int getCalendarBackgroundColor();
+  int getCalendarBackgroundColor();
 
-    int getMonthTextColor();
+  void setCalendarBackgroundColor(int calendarBackgroundColor);
 
-    int getOtherDayTextColor();
+  int getMonthTextColor();
 
-    int getDayTextColor();
+  void setMonthTextColor(int monthTextColor);
 
-    int getWeekendDayTextColor();
+  int getOtherDayTextColor();
 
-    int getWeekDayTitleTextColor();
+  void setOtherDayTextColor(int otherDayTextColor);
 
-    int getSelectedDayTextColor();
+  int getDayTextColor();
 
-    int getSelectedDayBackgroundColor();
+  void setDayTextColor(int dayTextColor);
 
-    int getSelectedDayBackgroundStartColor();
+  int getWeekendDayTextColor();
 
-    int getSelectedDayBackgroundEndColor();
+  void setWeekendDayTextColor(int weekendDayTextColor);
 
-    int getCurrentDayTextColor();
+  int getWeekDayTitleTextColor();
 
-    int getCurrentDayIconRes();
+  void setWeekDayTitleTextColor(int weekDayTitleTextColor);
 
-    int getCurrentDaySelectedIconRes();
+  int getSelectedDayTextColor();
 
-    int getCalendarOrientation();
+  void setSelectedDayTextColor(int selectedDayTextColor);
 
-    int getConnectedDayIconRes();
+  int getSelectedDayBackgroundColor();
 
-    int getConnectedDaySelectedIconRes();
+  void setSelectedDayBackgroundColor(int selectedDayBackgroundColor);
 
-    int getConnectedDayIconPosition();
+  int getSelectedDayBackgroundStartColor();
 
-    int getDisabledDayTextColor();
+  void setSelectedDayBackgroundStartColor(int selectedDayBackgroundStartColor);
 
-    int getSelectionBarMonthTextColor();
+  int getSelectedDayBackgroundEndColor();
 
-    int getPreviousMonthIconRes();
+  void setSelectedDayBackgroundEndColor(int selectedDayBackgroundEndColor);
 
-    int getNextMonthIconRes();
+  int getCurrentDayTextColor();
 
-    boolean isShowDaysOfWeek();
+  void setCurrentDayTextColor(int currentDayTextColor);
 
-    boolean isShowDaysOfWeekTitle();
+  int getCurrentDayIconRes();
 
-    void setCalendarBackgroundColor(int calendarBackgroundColor);
+  void setCurrentDayIconRes(int currentDayIconRes);
 
-    void setMonthTextColor(int monthTextColor);
+  int getCurrentDaySelectedIconRes();
 
-    void setOtherDayTextColor(int otherDayTextColor);
+  void setCurrentDaySelectedIconRes(int currentDaySelectedIconRes);
 
-    void setDayTextColor(int dayTextColor);
+  int getCalendarOrientation();
 
-    void setWeekendDayTextColor(int weekendDayTextColor);
+  void setCalendarOrientation(int calendarOrientation);
 
-    void setWeekDayTitleTextColor(int weekDayTitleTextColor);
+  int getConnectedDayIconRes();
 
-    void setSelectedDayTextColor(int selectedDayTextColor);
+  void setConnectedDayIconRes(int connectedDayIconRes);
 
-    void setSelectedDayBackgroundColor(int selectedDayBackgroundColor);
+  int getConnectedDaySelectedIconRes();
 
-    void setSelectedDayBackgroundStartColor(int selectedDayBackgroundStartColor);
+  void setConnectedDaySelectedIconRes(int connectedDaySelectedIconRes);
 
-    void setSelectedDayBackgroundEndColor(int selectedDayBackgroundEndColor);
+  int getConnectedDayIconPosition();
 
-    void setCurrentDayTextColor(int currentDayTextColor);
+  void setConnectedDayIconPosition(int connectedDayIconPosition);
 
-    void setCurrentDayIconRes(int currentDayIconRes);
+  int getDisabledDayTextColor();
 
-    void setCurrentDaySelectedIconRes(int currentDaySelectedIconRes);
+  void setDisabledDayTextColor(int disabledDayTextColor);
 
-    void setCalendarOrientation(int calendarOrientation);
+  int getSelectionBarMonthTextColor();
 
-    void setConnectedDayIconRes(int connectedDayIconRes);
+  void setSelectionBarMonthTextColor(int selectionBarMonthTextColor);
 
-    void setConnectedDaySelectedIconRes(int connectedDaySelectedIconRes);
+  int getPreviousMonthIconRes();
 
-    void setConnectedDayIconPosition(int connectedDayIconPosition);
+  void setPreviousMonthIconRes(int previousMonthIconRes);
 
-    void setDisabledDayTextColor(int disabledDayTextColor);
+  int getNextMonthIconRes();
 
-    void setSelectionBarMonthTextColor(int selectionBarMonthTextColor);
+  void setNextMonthIconRes(int nextMonthIconRes);
 
-    void setPreviousMonthIconRes(int previousMonthIconRes);
+  boolean isShowDaysOfWeek();
 
-    void setNextMonthIconRes(int nextMonthIconRes);
+  void setShowDaysOfWeek(boolean showDaysOfWeek);
 
-    void setShowDaysOfWeek(boolean showDaysOfWeek);
+  boolean isShowDaysOfWeekTitle();
 
-    void setShowDaysOfWeekTitle(boolean showDaysOfWeekTitle);
+  void setShowDaysOfWeekTitle(boolean showDaysOfWeekTitle);
+
+  void setWeekDayTitleTextSize(float weekDayTitleTextSize);
+
+  float getWeekDayTitleTextSize();
+
+  void setMonthTextSize(float monthTextSize);
+
+  float getMonthTextSize();
+
+  void setDayTextSize(float dayTextSize);
+
+  float getDayTextSize();
+
+  float getSelectedDayTextSize();
+
+  void setSelectedDayTextSize(float selectedDayTextSize);
 }

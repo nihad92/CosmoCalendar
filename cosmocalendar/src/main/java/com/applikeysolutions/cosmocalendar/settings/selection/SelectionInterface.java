@@ -4,8 +4,8 @@ import com.applikeysolutions.cosmocalendar.utils.SelectionType;
 
 public interface SelectionInterface {
 
-    @SelectionType
-    int getSelectionType();
+  @SelectionType
+  int getSelectionType();
 
-    void setSelectionType(@SelectionType int selectionType);
+  void setSelectionType(@SelectionType int selectionType);
 }

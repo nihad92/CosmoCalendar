@@ -1,68 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="CalendarView">
+  <declare-styleable name="CalendarView">
 
-        <attr name="firstDayOfTheWeek" format="enum">
-            <enum name="sunday" value="1" />
-            <enum name="monday" value="2" />
-            <enum name="tuesday" value="3" />
-            <enum name="wednesday" value="4" />
-            <enum name="thursday" value="5" />
-            <enum name="friday" value="6" />
-            <enum name="saturday" value="7" />
-        </attr>
+    <attr format="enum" name="firstDayOfTheWeek">
+      <enum name="sunday" value="1"/>
+      <enum name="monday" value="2"/>
+      <enum name="tuesday" value="3"/>
+      <enum name="wednesday" value="4"/>
+      <enum name="thursday" value="5"/>
+      <enum name="friday" value="6"/>
+      <enum name="saturday" value="7"/>
+    </attr>
 
-        <attr name="selectionType" format="enum">
-            <enum name="single" value="0" />
-            <enum name="multiple" value="1" />
-            <enum name="range" value="2" />
-            <enum name="none" value="3" />
-        </attr>
+    <attr format="enum" name="selectionType">
+      <enum name="single" value="0"/>
+      <enum name="multiple" value="1"/>
+      <enum name="range" value="2"/>
+      <enum name="none" value="3"/>
+    </attr>
 
-        <attr name="orientation" format="enum">
-            <enum name="horizontal" value="0" />
-            <enum name="vertical" value="1" />
-        </attr>
+    <attr format="enum" name="orientation">
+      <enum name="horizontal" value="0"/>
+      <enum name="vertical" value="1"/>
+    </attr>
 
-        <attr name="calendarBackgroundColor" format="color" />
-        <attr name="monthTextColor" format="color" />
-        <attr name="otherDayTextColor" format="color" />
-        <attr name="dayTextColor" format="color" />
-        <attr name="weekDayTitleTextColor" format="color" />
-        <attr name="disabledDayTextColor" format="color" />
-        <attr name="selectionBarMonthTextColor" format="color" />
+    <attr format="color" name="calendarBackgroundColor"/>
+    <attr format="color" name="monthTextColor"/>
+    <attr format="dimension" name="monthTextSize"/>
+    <attr format="color" name="otherDayTextColor"/>
+    <attr format="color" name="dayTextColor"/>
+    <attr format="dimension" name="dayTextSize"/>
+    <attr format="color" name="weekDayTitleTextColor"/>
+    <attr format="dimension" name="weekDayTitleTextSize"/>
+    <attr format="color" name="disabledDayTextColor"/>
+    <attr format="color" name="selectionBarMonthTextColor"/>
 
-        <attr name="selectedDayTextColor" format="color" />
-        <attr name="selectedDayBackgroundColor" format="color" />
-        <attr name="selectedDayBackgroundStartColor" format="color" />
-        <attr name="selectedDayBackgroundEndColor" format="color" />
+    <attr format="color" name="selectedDayTextColor"/>
+    <attr format="dimension" name="selectedDayTextSize"/>
+    <attr format="color" name="selectedDayBackgroundColor"/>
+    <attr format="color" name="selectedDayBackgroundStartColor"/>
+    <attr format="color" name="selectedDayBackgroundEndColor"/>
 
-        <attr name="currentDayTextColor" format="color" />
-        <attr name="currentDayIconRes" format="reference" />
-        <attr name="currentDaySelectedIconRes" format="reference" />
+    <attr format="color" name="currentDayTextColor"/>
+    <attr format="dimension" name="currentDayTextSize"/>
+    <attr format="reference" name="currentDayIconRes"/>
+    <attr format="reference" name="currentDaySelectedIconRes"/>
 
-        <attr name="connectedDayIconRes" format="reference" />
-        <attr name="connectedDaySelectedIconRes" format="reference" />
-        <attr name="connectedDayIconPosition" format="enum">
-            <enum name="top" value="0" />
-            <enum name="bottom" value="1" />
-        </attr>
+    <attr format="reference" name="connectedDayIconRes"/>
+    <attr format="reference" name="connectedDaySelectedIconRes"/>
+    <attr format="enum" name="connectedDayIconPosition">
+      <enum name="top" value="0"/>
+      <enum name="bottom" value="1"/>
+    </attr>
 
-        <attr name="previousMonthIconRes" format="reference" />
-        <attr name="nextMonthIconRes" format="reference" />
+    <attr format="reference" name="previousMonthIconRes"/>
+    <attr format="reference" name="nextMonthIconRes"/>
 
-        <attr name="weekendDayTextColor" format="color" />
-        <attr name="weekendDays">
-            <flag name="none" value="0" />
-            <flag name="monday" value="1" />
-            <flag name="tuesday" value="2" />
-            <flag name="wednesday" value="4" />
-            <flag name="thursday" value="8" />
-            <flag name="friday" value="16" />
-            <flag name="saturday" value="32" />
-            <flag name="sunday" value="64" />
-        </attr>
+    <attr format="color" name="weekendDayTextColor"/>
+    <attr name="weekendDays">
+      <flag name="none" value="0"/>
+      <flag name="monday" value="1"/>
+      <flag name="tuesday" value="2"/>
+      <flag name="wednesday" value="4"/>
+      <flag name="thursday" value="8"/>
+      <flag name="friday" value="16"/>
+      <flag name="saturday" value="32"/>
+      <flag name="sunday" value="64"/>
+    </attr>
 
-    </declare-styleable>
+  </declare-styleable>
 </resources>
