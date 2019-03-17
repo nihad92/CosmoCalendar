@@ -45,6 +45,7 @@ public class CalendarListsModel implements CalendarListsInterface {
   public void setMonthDisabledDays(
       Month month, Set<Integer> disabledDays) {
     if (monthDisabledDays.containsKey(month)) {
+      monthDisabledDays.get(month).clear();
       monthDisabledDays.get(month).addAll(disabledDays);
     } else {
       monthDisabledDays.put(month, disabledDays);
