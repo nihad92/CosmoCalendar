@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:minHeight="?listPreferredItemHeightSmall"
     >
-
   <RelativeLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:layout_gravity="center"
       >
   <com.applikeysolutions.cosmocalendar.view.customviews.CircleAnimationTextView
       android:id="@+id/tv_day_number"

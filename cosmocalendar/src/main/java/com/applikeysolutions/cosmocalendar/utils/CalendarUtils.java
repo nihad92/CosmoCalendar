@@ -132,18 +132,6 @@ public final class CalendarUtils {
   }
 
   /**
-   * Returns width of circle
-   */
-  public static int getCircleWidth(Context context) {
-    return getDisplayWidth(context) / Constants.DAYS_IN_WEEK;
-  }
-
-  public static int getDisplayWidth(Context context) {
-    return ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay()
-        .getWidth();
-  }
-
-  /**
    * Sets variables(isWeekend, isDisabled, isFromConnectedCalendar) to day
    */
   public static void setDay(Day day, SettingsManager settingsManager) {

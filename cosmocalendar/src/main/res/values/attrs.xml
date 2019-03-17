@@ -46,6 +46,9 @@
     <attr format="dimension" name="currentDayTextSize"/>
     <attr format="reference" name="currentDayIconRes"/>
     <attr format="reference" name="currentDaySelectedIconRes"/>
+    <attr format="dimension" name="dayTextPadding"/>
+    <attr format="dimension" name="weekDayTextPadding"/>
+    <attr format="dimension" name="preferredRowHeight"/>
 
     <attr format="reference" name="connectedDayIconRes"/>
     <attr format="reference" name="connectedDaySelectedIconRes"/>

@@ -11,7 +11,6 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import com.applikeysolutions.cosmocalendar.model.Day;
 import com.applikeysolutions.cosmocalendar.selection.SelectionState;
-import com.applikeysolutions.cosmocalendar.utils.CalendarUtils;
 import com.applikeysolutions.cosmocalendar.view.CalendarView;
 
 public class CircleAnimationTextView extends AppCompatTextView {
@@ -39,6 +38,9 @@ public class CircleAnimationTextView extends AppCompatTextView {
   //Rectangle
   private Paint backgroundRectanglePaint;
   private Rect backgroundRectangle;
+  private int width;
+  private int height;
+  private int radius;
 
   public CircleAnimationTextView(Context context) {
     super(context);
@@ -50,18 +52,6 @@ public class CircleAnimationTextView extends AppCompatTextView {
 
   public CircleAnimationTextView(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-  }
-
-  //Square view
-  @Override
-  public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-    if (MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.EXACTLY) {
-      //For making all day views same height (ex. screen width 1080 and we have days with width 154/154/155/154/154/155/154)
-      super.onMeasure(widthMeasureSpec,
-          CalendarUtils.getCircleWidth(getContext()) + MeasureSpec.EXACTLY);
-    } else {
-      super.onMeasure(widthMeasureSpec, widthMeasureSpec);
-    }
   }
 
   @Override
@@ -122,19 +112,19 @@ public class CircleAnimationTextView extends AppCompatTextView {
       createCirclePaint();
     }
 
-    final int diameter = getWidth() - DEFAULT_PADDING * 2;
+    final int diameter = radius * 2 - DEFAULT_PADDING * 2;
     final int diameterProgress = animationProgress * diameter / MAX_PROGRESS;
 
     setBackgroundColor(Color.TRANSPARENT);
-    canvas.drawCircle(getWidth() / 2, getWidth() / 2, diameterProgress / 2, circlePaint);
+    canvas.drawCircle(width / 2, height / 2, diameterProgress / 2, circlePaint);
   }
 
   private void drawCircleUnder(Canvas canvas) {
     if (circleUnderPaint == null || stateChanged) {
       createCircleUnderPaint();
     }
-    final int diameter = getWidth() - DEFAULT_PADDING * 2;
-    canvas.drawCircle(getWidth() / 2, getWidth() / 2, diameter / 2, circleUnderPaint);
+    final int diameter = radius * 2 - DEFAULT_PADDING * 2;
+    canvas.drawCircle(width / 2, height / 2, diameter / 2, circleUnderPaint);
   }
 
   private void createCirclePaint() {
@@ -220,13 +210,13 @@ public class CircleAnimationTextView extends AppCompatTextView {
   private Rect getRectangleForState() {
     switch (selectionState) {
       case START_RANGE_DAY:
-        return new Rect(getWidth() / 2, DEFAULT_PADDING, getWidth(), getHeight() - DEFAULT_PADDING);
+        return new Rect(width / 2, DEFAULT_PADDING, width, getHeight() - DEFAULT_PADDING);
 
       case END_RANGE_DAY:
-        return new Rect(0, DEFAULT_PADDING, getWidth() / 2, getHeight() - DEFAULT_PADDING);
+        return new Rect(0, DEFAULT_PADDING, width / 2, getHeight() - DEFAULT_PADDING);
 
       case RANGE_DAY:
-        return new Rect(0, DEFAULT_PADDING, getWidth(), getHeight() - DEFAULT_PADDING);
+        return new Rect(0, DEFAULT_PADDING, width, getHeight() - DEFAULT_PADDING);
 
       default:
         return null;
@@ -296,8 +286,6 @@ public class CircleAnimationTextView extends AppCompatTextView {
   public void showAsCircle(int circleColor) {
     this.circleColor = circleColor;
     animationProgress = 100;
-    setWidth(CalendarUtils.getCircleWidth(getContext()));
-    setHeight(CalendarUtils.getCircleWidth(getContext()));
     requestLayout();
   }
 
@@ -338,9 +326,14 @@ public class CircleAnimationTextView extends AppCompatTextView {
     clearVariables();
     this.calendarView = calendarView;
     selectionState = SelectionState.RANGE_DAY;
-    setWidth(CalendarUtils.getCircleWidth(getContext()) / 2);
-    setHeight(CalendarUtils.getCircleWidth(getContext()));
     requestLayout();
+  }
+
+  @Override protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+    super.onSizeChanged(w, h, oldw, oldh);
+    width = w;
+    height = h;
+    radius = Math.min(w, h) / 2;
   }
 
   //Animation
