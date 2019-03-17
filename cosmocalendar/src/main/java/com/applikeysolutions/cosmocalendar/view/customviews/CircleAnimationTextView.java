@@ -15,7 +15,7 @@ import com.applikeysolutions.cosmocalendar.view.CalendarView;
 
 public class CircleAnimationTextView extends AppCompatTextView {
 
-  public static final int DEFAULT_PADDING = 10;
+  public static final int DEFAULT_PADDING = 0;
   public static final int MAX_PROGRESS = 100;
   public static final long SELECTION_ANIMATION_DURATION = 300;
   private SelectionState selectionState;
@@ -112,19 +112,19 @@ public class CircleAnimationTextView extends AppCompatTextView {
       createCirclePaint();
     }
 
-    final int diameter = radius * 2 - DEFAULT_PADDING * 2;
+    final int diameter = radius * 2;
     final int diameterProgress = animationProgress * diameter / MAX_PROGRESS;
 
     setBackgroundColor(Color.TRANSPARENT);
-    canvas.drawCircle(width / 2, height / 2, diameterProgress / 2, circlePaint);
+    canvas.drawCircle(getPivotX(), getPivotY(), diameterProgress / 2f, circlePaint);
   }
 
   private void drawCircleUnder(Canvas canvas) {
     if (circleUnderPaint == null || stateChanged) {
       createCircleUnderPaint();
     }
-    final int diameter = radius * 2 - DEFAULT_PADDING * 2;
-    canvas.drawCircle(width / 2, height / 2, diameter / 2, circleUnderPaint);
+    final int diameter = radius * 2;
+    canvas.drawCircle(getPivotX(), getPivotY(), diameter / 2f, circleUnderPaint);
   }
 
   private void createCirclePaint() {
@@ -331,8 +331,8 @@ public class CircleAnimationTextView extends AppCompatTextView {
 
   @Override protected void onSizeChanged(int w, int h, int oldw, int oldh) {
     super.onSizeChanged(w, h, oldw, oldh);
-    width = w;
-    height = h;
+    width = w + this.getPaddingLeft() + this.getPaddingRight();
+    height = h + this.getPaddingTop() + this.getPaddingBottom();
     radius = Math.min(w, h) / 2;
   }
 
