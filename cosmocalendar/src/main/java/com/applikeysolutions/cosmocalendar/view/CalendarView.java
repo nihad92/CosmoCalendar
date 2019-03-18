@@ -92,7 +92,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
   private GravityPagerSnapHelper snapHelper;
 
   //Listeners
-  private OnMonthChangeListener onMonthChangeListener;
+  public OnMonthChangeListener onMonthChangeListener;
   private com.applikeysolutions.cosmocalendar.listeners.OnDaySelectedListener onDaySelectedListener;
 
   private Month previousSelectedMonth;
@@ -1197,16 +1197,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
 
   public void setOnMonthChangeListener(OnMonthChangeListener onMonthChangeListener) {
     this.onMonthChangeListener = onMonthChangeListener;
-    if (onMonthChangeListener == null) return;
-    rvMonths.post(new Runnable() {
-      @Override public void run() {
-        int position = rvMonths.getLayoutManager()
-            .getPosition(snapHelper.findSnapView(rvMonths.getLayoutManager()));
-        Month month = monthAdapter.getData().get(position);
-        CalendarView.this.onMonthChangeListener.onMonthChanged(month);
-        previousSelectedMonth = month;
-      }
-    });
+    onMonthChangeListener.onMonthChanged(monthAdapter.getData().get(0));
   }
 
   public void setOnDaySelectedListener(
