@@ -37,8 +37,6 @@ public class DateUtils {
     if (date != null) {
       calendar.setTime(date);
     }
-    calendar.clear(Calendar.HOUR_OF_DAY);
-    calendar.clear(Calendar.HOUR);
     while (calendar.get(Calendar.DAY_OF_WEEK) != firstDayOfWeek) {
       calendar.add(Calendar.DATE, -1);
     }
@@ -50,8 +48,6 @@ public class DateUtils {
     if (date != null) {
       calendar.setTime(date);
     }
-    calendar.clear(Calendar.HOUR_OF_DAY);
-    calendar.clear(Calendar.HOUR);
     if (calendar.get(Calendar.DAY_OF_MONTH) == calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
         && calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
       return calendar.getTime();
